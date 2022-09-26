@@ -1,6 +1,6 @@
 # Gojyuon_KeyHook
-# 2022/09/26 hhiro-GSX1100
-# Special Thanks to AonaSuzutsuki:https://aonasuzutsuki.hatenablog.jp/entry/2018/10/15/170958
+2022/09/26 hhiro-GSX1100
+Special Thanks to AonaSuzutsuki:https://aonasuzutsuki.hatenablog.jp/entry/2018/10/15/170958
 
 対応するIMEはMicrosoft IMEです。
 
