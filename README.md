@@ -2,6 +2,8 @@
 ## 2022/09/26 hhiro-GSX1100  
 ## Special Thanks to AonaSuzutsuki:https://aonasuzutsuki.hatenablog.jp/entry/2018/10/15/170958  
 
+日本語キーボードのかな入力において、五十音で入力できるようにするものです。  
+外国人の方や、小さいこどもさんなど、ローマ字入力できない方向けです。  
 対応するIMEはMicrosoft IMEです。  
 
 Windows10及びWindows11の現時点（2022/9/26)の最新の日本語IMEでは、カナ入力モードとローマ
