@@ -18,7 +18,9 @@ Windows10及びWindows11の現時点（2022/9/26)の最新の日本語IMEでは�
 ## exeファイル
 一応サンプル的にexeファイル「Gojyuon_KeyHook.exe」もUploadしていますが、Defenderがウイルス
 判定しますので許可する必要があります。（他のアンチウイルスソフトウェアも同じと思われる）  
-SHA256: 0a68dc4a2aabada08b03d50892852fd8aec35596d7b37a910a2ee93ef691bc64
+~~SHA256: 0a68dc4a2aabada08b03d50892852fd8aec35596d7b37a910a2ee93ef691bc64~~
+2022/9/29 タスクバーでも有効・無効が確認できるように、アイコンが変わるようにしました。
+SHA256: 63c962aa960694046bbdcc82300f4e3ad343bddd6d8503195676fbc31e7ebd4c
 
 ## ■有効の場合のキー置換マップ  
 【通常】  
