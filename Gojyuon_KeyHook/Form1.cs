@@ -2,19 +2,9 @@
 //* 2022/09/26 hhiro-GSX1100
 //* Special Thanks to AonaSuzutsuki:https://aonasuzutsuki.hatenablog.jp/entry/2018/10/15/170958
 //*************************************************************************************
-using Gojyuon_KeyHook.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gojyuon_KeyHook
@@ -75,11 +65,9 @@ namespace Gojyuon_KeyHook
 
         Timer timer1;
         InterceptKeyboard interceptKeyboard;
-        System.ComponentModel.ComponentResourceManager myResources;
         public Form1()
         {
             InitializeComponent();
-            myResources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             interceptKeyboard = new InterceptKeyboard();
             btnStop.Enabled = false;
             timer1 = new Timer();
