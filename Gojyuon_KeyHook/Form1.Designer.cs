@@ -78,6 +78,7 @@
             // lblCondition
             // 
             this.lblCondition.AutoSize = true;
+            this.lblCondition.ForeColor = System.Drawing.Color.Blue;
             this.lblCondition.Location = new System.Drawing.Point(298, 19);
             this.lblCondition.Name = "lblCondition";
             this.lblCondition.Size = new System.Drawing.Size(0, 30);

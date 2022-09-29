@@ -2,6 +2,7 @@
 //* 2022/09/26 hhiro-GSX1100
 //* Special Thanks to AonaSuzutsuki:https://aonasuzutsuki.hatenablog.jp/entry/2018/10/15/170958
 //*************************************************************************************
+using Gojyuon_KeyHook.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -73,10 +75,11 @@ namespace Gojyuon_KeyHook
 
         Timer timer1;
         InterceptKeyboard interceptKeyboard;
+        System.ComponentModel.ComponentResourceManager myResources;
         public Form1()
         {
             InitializeComponent();
-            
+            myResources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             interceptKeyboard = new InterceptKeyboard();
             btnStop.Enabled = false;
             timer1 = new Timer();
@@ -93,22 +96,23 @@ namespace Gojyuon_KeyHook
             interceptKeyboard.Hook();
             btnStart.Enabled = false;
             btnStop.Enabled = true;
+            ModeChange();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
-            Dispose();
+            HookDispose();
             btnStart.Enabled = true;
             btnStop.Enabled = false;
-            lblModeChange(false);
+            if(imeKanaMode) ModeChange();
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Dispose();
+            HookDispose();
             Application.Exit();
         }
-        private void Dispose() {
+        private void HookDispose() {
             timer1.Stop();
             interceptKeyboard.KeyDownEvent -= InterceptKeyboard_KeyDownEvent;
             interceptKeyboard.KeyUpEvent -= InterceptKeyboard_KeyUpEvent;
@@ -116,20 +120,19 @@ namespace Gojyuon_KeyHook
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Dispose();
+            HookDispose();
         }
 
-        private void lblModeChange(bool mode) {
-            if (mode)
+        private void ModeChange() {
+            imeKanaMode = !imeKanaMode;
+            if (imeKanaMode)
             {
                 this.lblCondition.Text = "有効";
-                this.lblCondition.ForeColor = Color.Blue;
-                this.lblCondition.BackColor = Color.White;
+                this.Icon = Properties.Resources.MyApp1;
             }
             else {
                 this.lblCondition.Text = "";
-                //this.lblCondition.ForeColor = Color.Red;
-                //this.lblCondition.BackColor = Color.Gray;
+                this.Icon = Properties.Resources.IconDisable;
             }
         }
 
@@ -241,30 +244,18 @@ namespace Gojyuon_KeyHook
                 switch (imeConversionMode)
                 {
                     case CMode_Kana_Hiragana:
-                        if (!imeKanaMode)
-                        {
-                            imeKanaMode = !imeKanaMode;
-                            //Console.WriteLine("ひらがな：" + imeKanaMode);
-                        }
-                        break;
                     case CMode_Kana_HankakuKana:
-                         if (!imeKanaMode)
-                        {
-                            imeKanaMode = !imeKanaMode;
-                            //Console.WriteLine("半角カナ：" + imeKanaMode);
-                        }
-                        break;
                     case CMode_Kana_ZenkakuKana:
                         if (!imeKanaMode)
                         {
-                            imeKanaMode = !imeKanaMode;
+                            ModeChange();
                             //Console.WriteLine("全角カナ：" + imeKanaMode);
                         }
                         break;
                     default:
                         if (imeKanaMode)
                         {
-                            imeKanaMode = !imeKanaMode;
+                            ModeChange();
                             //Console.WriteLine("OFF：" + imeKanaMode);
                         }
                         break;
@@ -273,11 +264,10 @@ namespace Gojyuon_KeyHook
             else {
                 if (imeKanaMode)
                 {
-                    imeKanaMode = !imeKanaMode;
+                    ModeChange();
                     //Console.WriteLine("OFF-1：" + imeKanaMode);
                 }
             }
-            lblModeChange(imeKanaMode);
-        }
+         }
     }
 }

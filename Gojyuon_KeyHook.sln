@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{1124FC5E-66AF-4641-90EC-60BE7076F5AB}"
 	ProjectSection(SolutionItems) = preProject
 		Gojyuon_KeyHook\icon\MyApp1.ico = Gojyuon_KeyHook\icon\MyApp1.ico
+		IconDisable.ico = IconDisable.ico
 	EndProjectSection
 EndProject
 Global
